@@ -1,0 +1,373 @@
+/**************************/
+/* A (more) Modern CSS Reset*/
+/* https://piccalil.li/blog/a-more-modern-css-reset/ */
+/* by Andy Bell */
+/**************************/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100svh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/**************************/
+/* Typography system */
+/* A type scale tool (adapted from a 1.2 scale ratio and increasing for the bigger sizes) was used with base 11px and modified to create a custom system */
+/* https://baseline.is/tools/type-scale-generator/ */
+/* - Font sizes (px) */
+/* 11 / 13 / 16 / 18 / 20 / 24 / 30 / 36 / 48 / 60 / 80 / */
+
+/* Custom properties (variables) for colors, font sizes, font weights */
+:root {
+  /* primary colors */
+  --light-red: hsl(0, 100%, 67%);
+  --orangey-yellow: hsl(39, 100%, 56%);
+  --green-teal: hsl(166, 100%, 37%);
+  --cobalt-blue: hsl(234, 85%, 45%);
+  /* neutral colors */
+  --white: hsl(0, 0%, 100%);
+  --pale-blue: hsl(221, 100%, 96%);
+  --light-lavender: hsl(241, 100%, 89%);
+  --dark-gray-blue: hsl(224, 30%, 27%);
+  /* colors for gradients */
+  /* variables for these are not used due to linear-gradient property limitations */
+  /* --gradient-bg-light-blue: hsl(252, 100%, 67%); */
+  /* --gradient-bg-royal-blue: hsl(241, 81%, 54%); */
+  /* --gradient-score-violet-blue: hsla(256, 72%, 46%, 1); */
+  /* --gradient-score-persian-blue: hsla(241, 72%, 46%, 0); */
+
+  /* font sizes */
+  --fs-xs: 0.6875rem;
+  --fs-sm: 0.8125rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-5xl: 3rem;
+  --fs-7xl: 5rem;
+
+  /* font weights */
+  --fw-bold: 700;
+  --fw-extra-bold: 800;
+}
+
+/* Local fonts */
+@font-face {
+  font-family: "Hanken Grotesk";
+  src: url(./assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
+}
+
+/* General component styling */
+body {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: var(--fs-lg); /* 18px */
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  /* Andy Bell's reset does not remove the following margins */
+  margin-inline: 0;
+}
+
+.component {
+  background-color: var(--white);
+  max-width: 24rem;
+  box-shadow: 0px 5px 20px var(--pale-blue);
+}
+
+.center-text {
+  text-align: center;
+}
+
+/* Andy Bell's reset does not remove margin-block-start from various elements */
+.m-block-s {
+  margin-block-start: 0;
+}
+
+.title {
+  font-size: var(--fs-xl);
+  margin-block-end: 1.5rem;
+}
+
+/* Result container */
+
+.result-container {
+  /* linear-gradient does not work with variables or hsl values for the colors */
+  /* --gradient-bg-light-blue: #7857ff; */
+  /* --gradient-bg-royal-blue: #2e2be9; */
+  background: linear-gradient(#7857ff, #2e2be9);
+  border-radius: 0 0 30px 30px;
+  color: var(--white);
+  padding: 1.5rem 3rem;
+}
+
+.result-title {
+  color: hsla(0, 0%, 100%, 0.7);
+}
+
+.result-score-container {
+  /* --gradient-score-violet-blue: #4e21ca; */
+  /* --gradient-score-persian-blue: #2421ca00; */
+  background: linear-gradient(#4e21ca, #2421ca00);
+  width: 50%;
+  height: auto;
+  margin: auto;
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.result-score {
+  font-size: var(--fs-5xl);
+  font-weight: var(--fw-extra-bold);
+}
+
+.result-score-percent {
+  display: block;
+  font-size: var(--fs-md);
+  color: hsla(0, 0%, 100%, 0.4);
+}
+
+.result-description {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+}
+
+.result-details {
+  font-size: var(--fs-md);
+  color: hsla(0, 0%, 100%, 0.5);
+  max-width: 35ch;
+}
+
+/* Summary container */
+
+.summary-container {
+  padding: 1.3rem;
+}
+
+/* Summary list */
+.summary-list {
+  list-style: none;
+  padding-inline-start: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  margin-block-end: 1.5rem;
+}
+
+.list-item {
+  font-weight: var(--fw-bold);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  gap: 0.7rem;
+  border-radius: 8px;
+}
+
+.list-item-reaction {
+  background-color: hsla(0, 100%, 67%, 0.1);
+}
+
+.list-item-memory {
+  background-color: hsla(39, 100%, 56%, 0.1);
+}
+
+.list-item-verbal {
+  background-color: hsla(166, 100%, 37%, 0.1);
+}
+
+.list-item-visual {
+  background-color: hsla(234, 85%, 45%, 0.1);
+}
+/* Andy Bell's reset does not remove margin-block-start */
+/* include m-block-s class in list-item > p */
+
+.tag-reaction {
+  color: var(--light-red);
+}
+
+.tag-memory {
+  color: var(--orangey-yellow);
+}
+
+.tag-verbal {
+  color: var(--green-teal);
+}
+
+.tag-visual {
+  color: var(--cobalt-blue);
+}
+
+.list-item-score {
+  margin-inline-start: auto;
+}
+
+.summary-score-percent {
+  color: hsla(0, 0%, 0%, 0.3);
+}
+
+/* Button */
+.btn {
+  text-decoration: none;
+  background-color: var(--dark-gray-blue);
+  color: var(--white);
+  padding: 1rem 1.5rem;
+  display: inline-block;
+  width: 100%;
+  border-radius: 50px;
+}
+
+.btn:link,
+.btn:visited {
+  color: var(--white);
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 4px var(--green-teal);
+}
+
+.btn:hover,
+.btn:active {
+  background: linear-gradient(#7857ff, #2e2be9);
+}
+
+/* Footer */
+.attribution {
+  font-size: var(--fs-xs); /* 11px */
+}
+
+.attribution a {
+  /* color: hsl(228, 45%, 44%); */
+  color: var(--cobalt-blue);
+}
+
+/**************************/
+/* MEDIA QUERIES */
+/* changing the component layout to a 2-column grid at 800px */
+/**************************/
+@media (min-width: 50rem) {
+  .component {
+    max-width: 48rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 30px;
+  }
+  .result-container {
+    border-radius: 30px;
+    padding: 2rem 3rem;
+  }
+
+  .summary-container {
+    padding: 2rem;
+  }
+
+  .result-score-container {
+    width: 80%;
+    padding: 2rem;
+  }
+
+  .result-score {
+    font-size: var(--fs-7xl);
+  }
+
+  .result-description {
+    font-size: var(--fs-2xl);
+    margin-block-start: 1rem;
+  }
+
+  .result-details {
+    max-width: 26ch;
+  }
+
+  .summary-list {
+    margin-block-end: 2.5rem;
+  }
+}
