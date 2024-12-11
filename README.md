@@ -47,7 +47,7 @@ The CSS Reset from Andy Bell was implemented.
 
 Mobile-first approach was followed.
 
-For the font sizes, I experimented a little bit with a type scale tool so as to create a custom typograph system. Not much needed in this challenge though.
+For the font sizes, I experimented with a type scale tool so as to create a custom typograph system. Not much needed in this challenge though.
 
 Custom properties were used for the colors, font sizes and font weights. Could also be considered an overkill.
 
