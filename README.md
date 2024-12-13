@@ -67,7 +67,7 @@ For the desktop version, a media query was used, basically using Grid to create 
 
 ### What I learned
 
-- The importance of a good HTML structure was once more a lesson learned from this challenge.
+The importance of a good HTML structure was once more a lesson learned from this challenge.
 
 ### Continued development
 
