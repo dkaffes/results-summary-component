@@ -195,11 +195,13 @@ body {
   /* --gradient-score-violet-blue: #4e21ca; */
   /* --gradient-score-persian-blue: #2421ca00; */
   background: linear-gradient(#4e21ca, #2421ca00);
-  width: 50%;
-  height: auto;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
-  padding: 1rem;
+  margin: auto;
 }
 
 .result-score {
@@ -350,8 +352,8 @@ body {
   }
 
   .result-score-container {
-    width: 80%;
-    padding: 2rem;
+    width: 12rem;
+    height: 12rem;
   }
 
   .result-score {
